@@ -6,16 +6,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+//Middleware
+app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/styles', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.css'))
-});
+//Endpoints
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../public/index.html'));
+// });
 
-const port = process.env.PORT || 4005;
+// app.get('/styles', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../public/index.css'))
+// });
 
-app.listen(port, () => {
-    console.log(`We vibin on port ${port}`);
-});
+// const port = process.env.PORT || 4005;
+
+// app.listen(port, () => {
+//     console.log(`We vibin on port ${port}`);
+// });
